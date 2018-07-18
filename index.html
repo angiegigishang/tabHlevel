@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		body{
+			padding: 80px;
+			background-color: #323232;
+			font-style: 12px;
+			font-family:"微软雅黑";
+		}
+	</style>
+	<link rel="stylesheet" href="tab.css">
+	<script src="jquery.js"></script>
+	<script src="tab.js"></script>
+</head>
+<body>
+	<div class="tab js-tab" data-config='{
+							            "triggerType": "mouseover",
+										"effect": "fade",
+										"invoke": 2,
+										"auto": 5000}'>
+		<ul class="tab-nav">
+			<li class="actived"><a href="#">新闻</a></li>
+			<li><a href="#">娱乐</a></li>
+			<li><a href="#">电影</a></li>
+			<li><a href="#">科技</a></li>
+		</ul>
+		<div class="content-wrap">
+			<div class = "content-item current">
+				<img src="img/a.jpg">
+			</div>
+			<div class = "content-item">
+				<img src="img/b.jpg">
+			</div>
+			<div class = "content-item">
+				<img src="img/c.jpg">
+			</div>
+			<div class = "content-item">
+				<img src="img/d.jpg">
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var tab1 = new Tab($(".js-tab").eq(0));
+
+		});
+	</script>
+
+</body>
+</html>
