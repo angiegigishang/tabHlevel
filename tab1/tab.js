@@ -52,6 +52,20 @@
 			this.loop = 0;
 
 			this.autoPlay();
+
+			this.tab.hover(function(){
+
+				window.clearInterval(_this_.timer);
+
+			},function(){
+
+				_this_.autoPlay();
+
+			});
+		};
+
+		if(config.invoke > 1){
+			this.invoke(this.tabItems.eq(config.invoke-1));
 		};
 
 	};
@@ -97,6 +111,12 @@
 			}else if(effect === "fade"){
                 conItems.eq(index).fadeIn().siblings().fadeOut();
 			};
+
+			//注意：如果配置了自动切换，把当前的loop值切换为当前tab的index
+
+			if(this.config.auto){
+				this.loop = index;
+			}
 
 
 
