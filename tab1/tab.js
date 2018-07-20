@@ -136,6 +136,25 @@
 		}
 
 	};
+
+	Tab.init = function(tabs){
+		var _this_ = this;
+		tabs.each(function(){
+			new _this_($(this));
+		});
+
+	};
+
+	//注册成jq方法
+	$.fn.extend({
+		tab: function() {
+			this.each(function(){
+				new Tab($(this));
+			});
+			return this;
+		}
+	})
+
  
 	
 
