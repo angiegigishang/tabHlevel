@@ -70,7 +70,7 @@
 
 	};
 
-	window.Tab = Tab;   //注册到window对象，外面可以访问到
+	//window.Tab = Tab;   //注册到window对象，外面可以访问到
 
 	Tab.prototype = {
 
@@ -81,14 +81,14 @@
 			    tabLength = tabItems.length, //tab的个数
 			    config = this.config;  
 
-		this.timer = window.setInterval(function(){
-			_this_.loop++;
-			if(_this_.loop >= tabLength){
-				_this_.loop = 0;
-			};
-			tabItems.eq(_this_.loop).trigger(config.triggerType);
+				this.timer = window.setInterval(function(){
+					_this_.loop++;
+					if(_this_.loop >= tabLength){
+						_this_.loop = 0;
+					};
+					tabItems.eq(_this_.loop).trigger(config.triggerType);
 
-			}, config.auto);
+				}, config.auto);
 		},
 
 		//事件驱动函数
@@ -137,25 +137,36 @@
 
 	};
 
-	Tab.init = function(tabs){
+/*	Tab.init = function(tabs){
 		var _this_ = this;
 		tabs.each(function(){
 			new _this_($(this));
 		});
 
-	};
+	};*/
 
 	//注册成jq方法
-	$.fn.extend({
+	/*$.fn.extend({
 		tab: function() {
 			this.each(function(){
 				new Tab($(this));
 			});
 			return this;
 		}
-	})
+	})*/
 
+	$.fn.tab = function() {
+			console.log(this);
+			this.each(function(){
+				console.log(this);
+				new Tab($(this));
+			});
+			return this;
+		}
+
+/*$.ajax
+$.fn.asdf   $('#asdf').asf()*/
  
 	
 
-})(jQuery);  //jquery传入
+})(jQuery); //jquery传入
